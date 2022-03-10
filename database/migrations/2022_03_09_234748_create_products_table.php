@@ -15,7 +15,12 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('ARTICLE',255)->unique();
+            $table->string('NAME',255 );
+            $table->string('STATUS',255 );
+            $table->jsonb('DATA' );
             $table->timestamps();
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
     }
 
